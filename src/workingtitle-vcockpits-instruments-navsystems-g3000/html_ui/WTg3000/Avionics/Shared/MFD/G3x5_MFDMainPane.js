@@ -273,6 +273,7 @@ class WT_G3x5_MFDHalfPane {
         this._navMap = new WT_G3x5_NavMap(id, icaoWaypointFactory, icaoSearchers, flightPlanManager, citySearcher, borderData, roadFeatureData, roadLabelData);
         this._weatherRadar = new WT_G3x5_WeatherRadar(id);
         this._waypointInfo = new WT_G3x5_WaypointInfo(id, icaoWaypointFactory, icaoSearchers);
+        this._checklist = new WT_G3x5_Checklist(id);
 
         this._displayMode;
         this._waypointICAO = "";
@@ -294,6 +295,7 @@ class WT_G3x5_MFDHalfPane {
         this._navMap.init(this.htmlElement.querySelector(`.navMap`));
         this._weatherRadar.init(this.htmlElement.querySelector(`.weatherRadar`));
         this._waypointInfo.init(this.htmlElement.querySelector(`.waypointInfo`));
+        this._checklist.init(this.htmlElement.querySelector(`.checklist`));
     }
 
     /**
@@ -358,6 +360,9 @@ class WT_G3x5_MFDHalfPane {
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.INT_INFO:
                 this._waypointInfo.sleep();
                 break;
+            case WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST:
+                this._checklist.sleep();
+                break;
         }
     }
 
@@ -378,6 +383,9 @@ class WT_G3x5_MFDHalfPane {
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.NDB_INFO:
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.INT_INFO:
                 this._waypointInfo.wake();
+                break;
+            case WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST:
+                this._checklist.wake();
                 break;
         }
     }
@@ -452,6 +460,9 @@ class WT_G3x5_MFDHalfPane {
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.INT_INFO:
                 this._waypointInfo.update();
                 break;
+            case WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST:
+                this._checklist.update();
+                break;
         }
     }
 
@@ -504,11 +515,21 @@ class WT_G3x5_MFDHalfPaneHTMLElement extends HTMLElement {
         return this._waypointInfo;
     }
 
+    /**
+     * @readonly
+     * @property {HTMLElement} checklistRadarContainer
+     * @type {HTMLElement}
+     */
+    get checklistContainer() {
+      return this._checklist;
+    }
+
     _defineChildren() {
         this._titledPane = this.shadowRoot.querySelector(`#titledpane`);
         this._navMap = this.shadowRoot.querySelector(`#navMap`);
         this._weatherRadar = this.shadowRoot.querySelector(`#weatherRadar`);
         this._waypointInfo = this.shadowRoot.querySelector(`#waypointInfo`);
+        this._checklist  = this.shadowRoot.querySelector('#checklist');
     }
 
     connectedCallback() {
@@ -567,6 +588,9 @@ class WT_G3x5_MFDHalfPaneHTMLElement extends HTMLElement {
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.INT_NRST:
                 this._setTitle("Nearest Intersection");
                 break;
+          case WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST:
+            this._setTitle("Checklist");
+            break;
         }
     }
 
@@ -576,6 +600,7 @@ class WT_G3x5_MFDHalfPaneHTMLElement extends HTMLElement {
                 this._navMap.style.display = "block";
                 this._weatherRadar.style.display = "none";
                 this._waypointInfo.style.display = "none";
+                this._checklist.style.display = "none";
                 break;
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.AIRPORT_NRST:
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.VOR_NRST:
@@ -586,6 +611,7 @@ class WT_G3x5_MFDHalfPaneHTMLElement extends HTMLElement {
                 this._navMap.style.display = "none";
                 this._weatherRadar.style.display = "block";
                 this._waypointInfo.style.display = "none";
+                this._checklist.style.display = "none";
                 break;
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.AIRPORT_INFO:
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.VOR_INFO:
@@ -594,6 +620,13 @@ class WT_G3x5_MFDHalfPaneHTMLElement extends HTMLElement {
                 this._navMap.style.display = "none";
                 this._weatherRadar.style.display = "none";
                 this._waypointInfo.style.display = "block";
+                this._checklist.style.display = "none";
+                break;
+            case WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST:
+                this._navMap.style.display = "none";
+                this._weatherRadar.style.display = "none";
+                this._waypointInfo.style.display = "none";
+                this._checklist.style.display = "block";
                 break;
         }
     }
@@ -657,6 +690,7 @@ WT_G3x5_MFDHalfPaneHTMLElement.TEMPLATE_SHADOW.innerHTML = `
             <slot slot="content" id="navMap" class="content" name="navMap"></slot>
             <slot slot="content" id="weatherRadar" class="content" name="weatherRadar"></slot>
             <slot slot="content" id="waypointInfo" class="content" name="waypointInfo"></slot>
+            <slot slot="content" id="checklist" class="content" name="checklist"></slot>
         </pane-titled>
     </div>
 `;
@@ -728,6 +762,7 @@ WT_G3x5_MFDHalfPaneDisplaySetting.Display = {
     VOR_NRST: 7,
     NDB_NRST: 8,
     INT_NRST: 9,
+    CHECKLIST: 15
 }
 
 class WT_G3x5_MFDHalfPaneWaypointSetting extends WT_DataStoreSetting {

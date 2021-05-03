@@ -143,3 +143,10 @@ as1000-mfd-element #Mainframe #Electricity #CenterDisplay #MainDisplayArea #Righ
 as1000-mfd-element #Mainframe #Electricity #CenterDisplay #MainDisplayArea #RightInfos #AirportInfos #Infos1 #rightPanel #Frequencies {
     /*margin:0;*/
 }
+
+as1000-mfd-element #Mainframe #Electricity #CenterDisplay #MainDisplayArea #RightInfos #Checklist #ChecklistPage {
+    display: block;
+    width:100%;
+    height:100%;
+    background-color: #B22222;
+}

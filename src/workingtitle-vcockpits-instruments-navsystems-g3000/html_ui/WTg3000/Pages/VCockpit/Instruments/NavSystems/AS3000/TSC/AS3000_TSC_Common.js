@@ -210,7 +210,9 @@ class AS3000_TSC extends NavSystemTouch {
                 new NavSystemPage("Lighting Configuration", "LightingConfig", new AS3000_TSC_LightingConfig()),
                 new NavSystemPage("Utilities", "Utilities", new AS3000_TSC_Utilities()),
                 new NavSystemPage("Setup", "UtilitiesSetup", new AS3000_TSC_UtilitiesSetup()),
-                new NavSystemPage("Avionics Settings", "AvionicsSettings", new WT_G3x5_TSCAvionicsSettings("MFD", "MFD Home", "MFD"))
+                new NavSystemPage("Avionics Settings", "AvionicsSettings", new WT_G3x5_TSCAvionicsSettings("MFD", "MFD Home", "MFD")),
+                this._mfdPagesLeft.checklist = new NavSystemPage("Checklist Info Left", "ChecklistLeft", new WT_G3x5_TSCAirportInfoPage("MFD", "MFD Home", "MFD", WT_G3x5_MFDHalfPane.ID.LEFT, this.mfdLeftPaneSettings.display, this.mfdLeftPaneSettings.waypoint, this.icaoWaypointFactory)),
+                this._mfdPagesRight.checklist = new NavSystemPage("Checklist Info Right", "ChecklistRight", new WT_G3x5_TSCAirportInfoPage("MFD", "MFD Home", "MFD", WT_G3x5_MFDHalfPane.ID.RIGHT, this.mfdRightPaneSettings.display, this.mfdRightPaneSettings.waypoint, this.icaoWaypointFactory))
             ]),
             new NavSystemPageGroup("NavCom", this, [
                 new NavSystemPage("NAV/COM Home", "NavComHome", new AS3000_TSC_NavComHome()),
@@ -354,6 +356,13 @@ class AS3000_TSC extends NavSystemTouch {
         }
     }
 
+    _onMFDPaneChecklistDisplaySwitch(currentPageGroup, currentPage) {
+        if (currentPageGroup.name === "MFD" && currentPage.title === "Weather Selection" && currentPage.title === "Weather Radar Settings") {
+            this.closePopUpElement();
+            this.SwitchToPageName("MFD", "MFD Home");
+        }
+    }
+
     _onMFDHalfPaneDisplayChanged(setting, newValue, oldValue) {
         if (!this._isChangingPages && setting === this.getSelectedMFDPaneSettings().display) {
             let currentPageGroup = this.getCurrentPageGroup();
@@ -364,6 +373,9 @@ class AS3000_TSC extends NavSystemTouch {
                     break;
                 case WT_G3x5_MFDHalfPaneDisplaySetting.Display.WEATHER:
                     this._onMFDPaneWeatherDisplaySwitch(currentPageGroup, currentPage);
+                    break;
+                case WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST:
+                    this._onMFDPaneChecklistDisplaySwitch(currentPageGroup, currentPage);
                     break;
             }
         }
@@ -502,13 +514,26 @@ class AS3000_TSC extends NavSystemTouch {
         }
     }
 
+    _handleChecklistEvent(event) {
+        if (event === "BottomKnob_Push" && this.getCurrentPageGroup().name === "MFD" && this.getSelectedMFDPaneSettings().display.getValue() === WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST) {
+            console.log("AS3000_TSC_Common - _handleChecklistEvent() - BottomKnob_Push on CHECKLIST !!!!");
+            SimVar.SetSimVarValue("L:NAV_TOUCH_CHECKLIST_PUSH", "Bool", true)
+                .catch(console.log);
+        } else {
+            console.log("AS3000_TSC_Common - _handleChecklistEvent() - Current PageGroup = " + this.getCurrentPageGroup().name);
+            console.log("AS3000_TSC_Common - _handleChecklistEvent() - selected Display = " + this.getSelectedMFDPaneSettings().display.getValue());
+            console.log("AS3000_TSC_Common - _handleChecklistEvent() - Display.CHECKLIST = " + WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST);
+        }
+    }
+
     onEvent(event) {
         super.onEvent(event);
-
+        console.log("AS3000_TSC_Common - onEvent(" + event + ")");
         this._handleNavigationEvent(event);
         this._handleZoomEvent(event);
         this._handleControlEvent(event);
         this._handleMapPointerEvent(event);
+        this._handleChecklistEvent(event);
     }
 
     goBack() {
@@ -696,6 +721,7 @@ class AS3000_TSC_MFDHome extends NavSystemElement {
         this.speedBugsButton = this.gps.getChildById("SpeedBugsButton_MFD");
         this.WaypointsInfoButton = this.gps.getChildById("WaypointInfoButton");
         this.aircraftSystemsButton = this.gps.getChildById("AircraftSystemsButton");
+        this._checklistButton = this.gps.getChildById("ChecklistButton");
         this.utilitiesButton = this.gps.getChildById("UtilitiesButton");
         this.gps.makeButton(this._mapButton, this._onMapButtonPressed.bind(this));
         this.gps.makeButton(this._weatherButton, this._onWeatherButtonPressed.bind(this));
@@ -707,7 +733,7 @@ class AS3000_TSC_MFDHome extends NavSystemElement {
         this.gps.makeButton(this.WaypointsInfoButton, this.gps.SwitchToPageName.bind(this.gps, "MFD", "Waypoint Info"));
         this.gps.makeButton(this.aircraftSystemsButton, this.gps.SwitchToPageName.bind(this.gps, "MFD", "Aircraft Systems"));
         this.gps.makeButton(this.utilitiesButton, this.gps.SwitchToPageName.bind(this.gps, "MFD", "Utilities"));
-
+        this.gps.makeButton(this._checklistButton, this._onChecklistButtonPressed.bind(this));
         this.gps.mfdMainPaneSettings.mode.addListener(this._onMainPaneModeChanged.bind(this));
         this.gps.mfdLeftPaneSettings.control.addListener(this._onPaneControlChanged.bind(this));
         this.gps.mfdRightPaneSettings.control.addListener(this._onPaneControlChanged.bind(this));
@@ -725,6 +751,11 @@ class AS3000_TSC_MFDHome extends NavSystemElement {
         this.gps.SwitchToPageName("MFD", "Map Settings");
     }
 
+    _openChecklistPage() {
+        this.gps.SwitchToPageName("MFD", "Checklist");
+    }
+
+
     _onMapButtonPressed() {
         let settings = this.gps.getSelectedMFDPaneSettings();
         if (settings.display.getValue() === WT_G3x5_MFDHalfPaneDisplaySetting.Display.NAVMAP) {
@@ -735,12 +766,29 @@ class AS3000_TSC_MFDHome extends NavSystemElement {
     }
 
     _onWeatherButtonPressed() {
+        console.log("AS3000_TSC_Common - _onWeatherButtonPressed() - start");
         let settings = this.gps.getSelectedMFDPaneSettings();
         if (settings.display.getValue() === WT_G3x5_MFDHalfPaneDisplaySetting.Display.WEATHER) {
             this._openWeatherSelectPage();
         } else {
             settings.display.setValue(WT_G3x5_MFDHalfPaneDisplaySetting.Display.WEATHER);
         }
+        console.log("AS3000_TSC_Common - _onWeatherButtonPressed() - end");
+    }
+
+    _onChecklistButtonPressed() {
+        console.log("AS3000_TSC_Common - _onChecklistButtonPressed() - start");
+        let settings = this.gps.getSelectedMFDPaneSettings();
+        if (settings.display.getValue() === WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST) {
+            console.log("AS3000_TSC_Common - _onChecklistButtonPressed() - Checklist Page already on the MFD... we do nothing for now");
+            //this._openChecklistPage();
+        } else {
+            settings.display.setValue(WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST);
+        }
+        //SimVar.SetSimVarValue("L:AS3000_MFD_ShowChecklist", "boolean", true);
+        //SimVar.SetSimVarValue("L:AS3000_MFD_Current_Map", "number", 15);
+        //this.gps.SwitchToPageName("MFD", "Checklist Page");
+        console.log("AS3000_TSC_Common - _onChecklistButtonPressed() - end");
     }
 
     _updateMapWeatherButtons() {
@@ -751,20 +799,38 @@ class AS3000_TSC_MFDHome extends NavSystemElement {
                 this._mapButtonTitle.innerHTML = "Map Settings";
                 this._weatherButton.setAttribute("state", "");
                 this._weatherButtonTitle.innerHTML = "Weather";
+                //this._checklistButton.setAttribute("state", "");
                 break;
             case WT_G3x5_MFDHalfPaneDisplaySetting.Display.WEATHER:
                 this._weatherButton.setAttribute("state", "Active");
                 this._weatherButtonTitle.innerHTML = "Weather<br>Selection";
                 this._mapButton.setAttribute("state", "");
                 this._mapButtonTitle.innerHTML = "Map";
+                //this._checklistButton.setAttribute("state", "");
+                break;
+            case WT_G3x5_MFDHalfPaneDisplaySetting.Display.CHECKLIST:
+                this._weatherButton.setAttribute("state", "");
+                this._weatherButtonTitle.innerHTML = "Weather";
+                this._mapButton.setAttribute("state", "");
+                this._mapButtonTitle.innerHTML = "Map";
+                //this._checklistButton.setAttribute("state", "Active");
                 break;
             default:
                 this._weatherButton.setAttribute("state", "");
                 this._weatherButtonTitle.innerHTML = "Weather";
                 this._mapButton.setAttribute("state", "");
                 this._mapButtonTitle.innerHTML = "Map";
+                //this._checklistButton.setAttribute("state", "");
         }
     }
+
+    /*updateMapButtons(_newIndex = undefined) {
+        let currMap = _newIndex == undefined ? SimVar.GetSimVarValue("L:AS3000_MFD_Current_Map", "number") : _newIndex;
+        if (currMap == 0) {
+            Avionics.Utils.diffAndSet(this.mapButton_text, "Map Settings");
+            Avionics.Utils.diffAndSetAttribute(this.mapButton, "state", "Active");
+        }
+    }*/
 
     _onPaneControlChanged(setting, newValue, oldValue) {
         if (this.gps.mfdPaneControlID !== undefined && ((newValue & this.gps.mfdPaneControlID) !== (oldValue & this.gps.mfdPaneControlID))) {

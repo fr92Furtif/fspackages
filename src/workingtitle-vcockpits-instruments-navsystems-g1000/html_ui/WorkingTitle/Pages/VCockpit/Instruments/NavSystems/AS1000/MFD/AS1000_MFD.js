@@ -27,6 +27,9 @@ class AS1000_MFD extends BaseAS1000 {
                 new AS1000_MFD_NearestVOR(),
                 new AS1000_MFD_NearestNDB(),
                 new AS1000_MFD_NearestIntersection(),
+            ]),
+            new NavSystemPageGroup("CHK", this, [
+                new AS1000_MFD_Checklist(),
             ])
         ];
         this.addEventLinkedPageGroup("FPL_Push", new NavSystemPageGroup("FPL", this, [
@@ -275,11 +278,13 @@ class AS1000_MFD_MainMap extends NavSystemPage {
         ]));
         this.mapMenu = new AS1000_MapMenu();
         this.engineMenu = new AS1000_EngineMenu(engineDisplay);
+        this.checklistMenu = new AS1000_ChecklistMenu(engineDisplay);
         this.engineDisplay = engineDisplay;
     }
     init() {
         this.mapMenu.init(this, this.gps);
         this.engineMenu.init(this, this.gps);
+        this.checklistMenu.init(this, this.gps);
         this.softKeys = new SoftKeysMenu();
         this.softKeys.elements = [
             new SoftKeyElement("ENGINE", this.engineMenu.open.bind(this.engineMenu)),
@@ -301,9 +306,9 @@ class AS1000_MFD_MainMap extends NavSystemPage {
                 }
             }),
             new SoftKeyElement("SHW CHRT", null),
-            new SoftKeyElement("", null)
+            new SoftKeyElement("CHKLIST", this.checklistMenu.open.bind(this.checklistMenu))
         ];
-	}
+    }
 }
 class AS1000_MFD_MainMapSlot extends NavSystemElement {
     init(root) {
@@ -1084,6 +1089,92 @@ class AS1000_MFD_SystemSetupElement extends NavSystemElement {
         }
     }
 }
+class AS1000_MFD_ChecklistPageElement extends NavSystemElement {
+    init(root) {
+    }
+    onEnter() {
+    }
+    onUpdate(_deltaTime) {
+    }
+    onExit() {
+    }
+    onEvent(_event) {
+    }
+}
+class AS1000_MFD_Checklist extends NavSystemPage {
+    constructor() {
+        super("Checklist Page", "ChecklistContainer", new AS1000_MFD_ChecklistPageElement());
+        this.element = new NavSystemElementGroup([
+            new AS1000_MFD_ChecklistElement()
+        ]);
+    }
+    init() {
+        this.checklistPage = this.gps.getChildById("ChecklistPage");
+        this.softKeys.elements = [
+            new SoftKeyElement("SYSTEM", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("CHECK", this.checkChecklistItem.bind(this)),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("EXIT", this.goBackToMap.bind(this)),
+            new SoftKeyElement("EMERGENCY", null)
+        ];
+    }
+    goBackToMap() {
+        this.gps.SwitchToPageName("MAP", "NAVIGATION MAP");
+    }
+    checkChecklistItem() {
+        this.checklistPage.onEvent("SOFTKEYS_6");
+    }
+}
+class AS1000_MFD_ChecklistElement extends NavSystemElement {
+    constructor() {
+        super(...arguments);
+    }
+    init(root) {
+        this.checklistContainer = root;
+        this.checklistPage = this.gps.getChildById("ChecklistPage");
+        this.checklistPage.gps = this.gps;
+        this.defaultSelectables = [
+            new SelectableElement(this.gps, this.channelSpacing, null)
+        ];
+    }
+    onEnter() {
+        this.checklistContainer.insertBefore(this.checklistPage, this.checklistContainer.firstChild); // Should not be necessary (YHI 19/12/2020)
+        // console.log("AS1000_MFD - AS1000_MFD_ChecklistElement - onEnter - this.cursorIndex = " + this.gps.cursorIndex);
+        // console.log("AS1000_MFD - AS1000_MFD_ChecklistElement - onEnter - this.currentSelectableArray = " + this.gps.currentSelectableArray);
+        // console.log("AS1000_MFD - AS1000_MFD_ChecklistElement - onEnter - this.currentSelectableArray[this.cursorIndex] = " + this.currentSelectableArray[this.cursorIndex]);
+        this.gps.SwitchToInteractionState(4);
+    }
+    onUpdate(_deltaTime) {
+        if (this.checklistPage != null) {
+            //this.checklistPage.update(_deltaTime);
+        }
+        // Avionics.Utils.diffAndSet(this.channelSpacing, SimVar.GetSimVarValue("COM SPACING MODE:1", "Enum") == 0 ? "25 kHz" : "8.33 kHz");
+    }
+    onExit() {
+        this.gps.SwitchToInteractionState(0);
+    }
+    onEvent(_event) {
+        // let model = SimVar.GetSimVarValue("ATC MODEL", "string", "FMC");
+        // _event = FlightStart
+        // _event = FMS_Upper_PUSH
+        // _event = SOFTKEYS_6
+        // _event = FMS_Upper_DEC
+        // _event = FMS_Upper_INC
+        // _event = FMS_Lower_DEC
+        // _event = FMS_Lower_INC
+        // console.log("AS1000_MFD - AS1000_MFD_ChecklistElement - onEvent = " + _event);
+        if (_event !== "SOFTKEYS_6") {
+            this.checklistPage.onEvent(_event);
+        }
+    }
+}
 class AS1000_MapMenu {
     constructor() {
         this.modeMenu = new SoftKeysMenu();
@@ -1201,6 +1292,51 @@ class AS1000_EngineMenu {
             case "ASSIST":
               break;
         }
+        return "None";
+    }
+}
+class AS1000_ChecklistMenu {
+    constructor() {
+        this.checklistMenu = new SoftKeysMenu();
+    }
+    init(_owner, _gps) {
+        this.owner = _owner;
+        this.gps = _gps;
+        this.checklistMenu.elements = [
+            new SoftKeyElement("SYSTEM", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("CHECK", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("", null),
+            new SoftKeyElement("EXIT", null),
+            new SoftKeyElement("EMERGCY", null)
+        ];
+    }/*
+    getSoftKeyMenu(extraElements) {
+        return this.checklistMenu;
+    }*/
+    selectEngineDisplayPage(id) {
+        // let page = this.engineDisplay.selectEnginePage(id);
+        // this.switchMenu(this.getSoftKeyMenu(page.buttons.map(button => new SoftKeyElement(button.text, this.performSubAction.bind(this,button)))));
+    }
+    performSubAction(button) {
+
+    }
+    open() {
+        this.gps.SwitchToPageName("CHK", "Checklist Page");
+    }
+    close() {
+        this.owner.softKeys = this.originalMenu;
+    }
+    switchMenu(_menu) {
+        this.owner.softKeys = _menu;
+    }
+    getKeyState(_keyName) {
         return "None";
     }
 }

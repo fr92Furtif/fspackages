@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ChecklistPage Test</title>
+
+    <script>
+        class SVG {
+            static NS = "http://www.w3.org/2000/svg";
+        }
+        class Avionics {
+            static SVG = SVG;
+        }
+        class Utils {
+            static RemoveAllChildren(unTruc) {
+
+            }
+        }
+        class SimVar {
+            static GetSimVarValue(id, type, thing) {
+                return "da62";
+            }
+        }
+
+    </script>
+
+    <script src="ChecklistPage.js"></script>
+
+    <script>
+        var rot = 0;
+        var head = 0;
+        var course = 0;
+        var deviation = -1;
+        var variation = 0.05;
+
+        window.onload = () => {
+            let checklistPage = document.getElementById("checklistPage");
+/*
+            setInterval(
+                () => {
+                    let checklistPage = document.getElementById("checklistPage");
+                    let rotElem = document.getElementById("rot");
+                    let headElem = document.getElementById("head");
+
+                    checklistPage.setAttribute("rotation", rot);
+                    checklistPage.setAttribute("heading_bug_rotation", head);
+                    checklistPage.setAttribute("course", course);
+                    checklistPage.setAttribute("course_deviation", deviation);
+                    checklistPage.setAttribute("show_dme", "true");
+                    checklistPage.setAttribute("show_bearing1", "true");
+                    checklistPage.setAttribute("show_bearing2", "true");
+                    checklistPage.setAttribute("bearing2_bearing", course/0.78);
+
+                    rot = ((rot + 1) % 360);
+                    head = ((head + 2) % 360);
+                    course = ((course + 3) % 360);
+                    deviation = deviation + variation;
+                    if (deviation >= 1) {
+                        variation = -0.05;
+                    }
+                    if (deviation <= -1) {
+                        variation = 0.05;
+                    }
+                },
+                1000
+            )*/
+        }
+
+        function send(_event) {
+            let checklistPage = document.getElementById("checklistPage");
+            checklistPage.onEvent(_event);
+        }
+    </script>
+    <style>
+        body {
+            background-color: #33cc33;
+        }
+        #checklistPage {
+            background-color: black;
+            display: block;
+            width: 700px;
+            height: 700px;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <checklist-page id="checklistPage"></checklist-page>
+
+    <!-- G1000 Buttons Row  -->
+    <div style="display:flex; margin-top: 20px; padding: 5px; background-color: blueviolet;">
+        <button style="cursor: pointer;" onclick="send('SOFTKEYS_6')">SOFTKEYS_6</button>
+        <button style="cursor: pointer;" onclick="send('CLR')">CLR</button>
+        <button style="cursor: pointer;" onclick="send('ENT_Push')">ENT_Push</button>
+        <div style="flex-grow: 4;"></div>
+        <button style="cursor: pointer;" onclick="send('FMS_Lower_DEC')">FMS_Lower_DEC</button>
+        <button style="cursor: pointer;" onclick="send('FMS_Upper_DEC')">FMS_Upper_DEC</button>
+        <button style="cursor: pointer;" onclick="send('FMS_Upper_PUSH')">FMS_Upper_PUSH</button>
+        <button style="cursor: pointer;" onclick="send('FMS_Upper_INC')">FMS_Upper_INC</button>
+        <button style="cursor: pointer;" onclick="send('FMS_Lower_INC')">FMS_Lower_INC</button>
+    </div>
+
+</body>
+
+</html>

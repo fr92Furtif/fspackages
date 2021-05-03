@@ -281,3 +281,14 @@ as3000-mfd-element #Electricity .weatherRadar {
         width: 20vh;
         height: 20%;
     }
+
+as3000-mfd-element #Electricity .checklist {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+as3000-mfd-element #Electricity checklist-page {
+    width: 100%;
+    height: 100%;
+}

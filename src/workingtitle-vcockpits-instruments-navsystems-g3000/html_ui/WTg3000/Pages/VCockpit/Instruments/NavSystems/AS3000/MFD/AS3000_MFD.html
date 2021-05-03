@@ -43,6 +43,9 @@
                                 <weatherradar-view-settings></weatherradar-view-settings>
                             </div>
                             <map-view slot="waypointInfo" class="waypointInfo" dpi-scale="1" config-path="/WTg3000/Pages/VCockpit/Instruments/NavSystems/AS3000/MFD/mapConfig.json"></map-view>
+                            <div slot="checklist" class="checklist">
+                                <checklist-page id="ChecklistPage" as3000="true"></checklist-page>
+                            </div>
                         </mfd-halfpane>
                         <mfd-halfpane slot="right">
                             <map-view slot="navMap" class="navMap" dpi-scale="1" config-path="/WTg3000/Pages/VCockpit/Instruments/NavSystems/AS3000/MFD/mapConfig.json"></map-view>
@@ -52,6 +55,9 @@
                                 <weatherradar-view-settings></weatherradar-view-settings>
                             </div>
                             <map-view slot="waypointInfo" class="waypointInfo" dpi-scale="1" config-path="/WTg3000/Pages/VCockpit/Instruments/NavSystems/AS3000/MFD/mapConfig.json"></map-view>
+                            <div slot="checklist" class="checklist">
+                                <checklist-page id="ChecklistPage" as3000="true"></checklist-page>
+                            </div>
                         </mfd-halfpane>
                     </mfd-mainpane>
                 </div>
@@ -63,6 +69,8 @@
 <link rel="stylesheet" href="AS3000_MFD.css" />
 
 <script type="text/html" import-script="/JS/SimPlane.js"></script>
+
+<script type="text/javascript" src="/JS/debug.js"></script>
 
 <script type="text/html" import-script="/WTg3000/SDK/Libraries/zip-full.js"></script>
 <script type="text/html" import-script="/WTg3000/SDK/Libraries/d3-array.js"></script>
@@ -205,6 +213,8 @@
 <script type="text/html" import-script="/WTg3000/SDK/Weather/WeatherRadarView.js"></script>
 <script type="text/html" import-script="/WTg3000/SDK/Weather/WeatherRadarController.js"></script>
 
+<script type="text/html" import-script="/WTg3000/SDK/Checklist/ChecklistModel.js"></script>
+
 <script type="text/html" import-script="/WTg3000/SDK/Display/TitledPane.js"></script>
 <script type="text/html" import-script="/WTg3000/SDK/Display/NavDataBar.js"></script>
 
@@ -230,7 +240,10 @@
 <script type="text/html" import-script="/WTg3000/Avionics/Shared/G3x5_NavMap.js"></script>
 <script type="text/html" import-script="/WTg3000/Avionics/Shared/G3x5_WeatherRadar.js"></script>
 <script type="text/html" import-script="/WTg3000/Avionics/Shared/G3x5_WaypointInfo.js"></script>
+<script type="text/html" import-script="/WTg3000/Avionics/Shared/G3x5_Checklist.js"></script>
 <script type="text/html" import-script="/WTg3000/Avionics/Shared/MFD/G3x5_MFDNavDataBar.js"></script>
 <script type="text/html" import-script="/WTg3000/Avionics/Shared/MFD/G3x5_MFDMainPane.js"></script>
+
+<script type="text/html" import-script="/WorkingTitle/Pages/VCockpit/Instruments/NavSystems/Shared/Templates/ChecklistPage/ChecklistPage.js"></script>
 
 <script type="text/html" import-script="/WTg3000/Pages/VCockpit/Instruments/NavSystems/AS3000/MFD/AS3000_MFD.js"></script>

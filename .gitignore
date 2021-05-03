@@ -2,11 +2,14 @@
 **/Packages
 **/build
 ref
+.idea/inspectionProfiles
 .idea/codeStyles/codeStyleConfig.xml
 .idea/*.iml
 .idea/modules.xml
 .idea/vcs.xml
 .idea/workspace.xml
+.idea/misc.xml
+.idea/.gitignore
 CJ4 Build.ps1
 
 src/sound/.cache
