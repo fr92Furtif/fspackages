@@ -1,0 +1,290 @@
+{
+  "airplaneIcao": "DA62",
+  "checklists": [
+    {
+      "groupName": "GROUP1",
+      "checklistName": "PRE-FLIGHT INSPECTION",
+      "checklistItems": [
+        { "label": "Parking Brake", "challenge": "SET ON" },
+        { "label": "MET, NAV, Mass and Balance", "challenge": "FLIGHT PLANNING COMPLETED"},
+        { "label": "Airplane Documents", "challenge": "COMPLETE AND UP TO DATE"},
+        { "label": "LH & RH Pilot and Passenger Doors", "challenge": "CLEAN, UNDAMAGED, CHECK LOCKING"},
+        { "label": "Baggage", "challenge": "STOWED AND SECURED"},
+        { "label": "Foreign Objects", "challenge": "CHECK"},
+        { "label": "Emergency Equipment", "challenge": "STOWED AND SECURED"},
+        { "label": "FUEL SELECTORS", "challenge": "CHECK ON"},
+        { "label": "POWER Levers", "challenge": "CHECK"},
+        { "label": "ALTERNATE STATIC SOURCE", "challenge": "CHECK CLOSED"},
+        { "label": "Manual Gear Extension Handle", "challenge": "CHECK PUSHED IN"},
+        { "label": "ALTERNATE AIR", "challenge": "CHECK CLOSED"},
+        { "label": "ALTERNATOR", "challenge": "CHECK BOTH ON"},
+        { "label": "VOTER Switch", "challenge": "CHECK BOTH AUTO"},
+        { "label": "PITOT HEAT", "challenge": "CHECK OFF"},
+        { "label": "ENGINE MASTER", "challenge": "CHECK BOTH OFF"},
+        { "label": "AVIONIC MASTER", "challenge": "CHECK OFF"},
+        { "label": "GEAR SELECTOR", "challenge": "CHECK DOWN"},
+        { "label": "FLAP SELECTOR", "challenge": "CHECK UP"},
+        { "label": "Circuit Breakers", "challenge": "SET IN"},
+        { "label": "All Electrical Equipment", "challenge": "OFF"},
+        { "label": "ELT", "challenge": "ARMED"},
+        { "label": "ELECT. MASTER", "challenge": "ON"},
+        { "label": "Fuel Quantity", "challenge": "CHECK INDICATION, VERIFY"},
+        { "label": "Position Lights, Strobe Lights (ACL)", "challenge": "CHECK"},
+        { "label": "Landing / Taxi Light", "challenge": "CHECK"},
+        { "label": "Stall Warning/Stall/Pitot Heat/Static Port Heat", "challenge": "CHECK"},
+        { "label": "Gear Warning/Fire Detector TEST BUTTON", "challenge": "PUSH, CHECK"},
+        { "label": "ELECT. MASTER", "challenge": "OFF"},
+        { "label": "Flight Controls", "challenge": "CHECK"},
+        { "label": "Trims", "challenge": "CHECK"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "BEFORE STARTING ENGINE",
+      "checklistItems": [
+        { "label": "Preflight inspection", "challenge": "COMPLETE" },
+        { "label": "Passengers", "challenge": "INSTRUCTED"},
+        { "label": "Passenger Door", "challenge": "CLOSED AND LOCKED"},
+        { "label": "Adjustable Backrests", "challenge": "ADJUST TO THE UPRIGHT POSITION"},
+        { "label": "Rudder Pedals", "challenge": "ADJUSTED"},
+        { "label": "Safety Harness", "challenge": "ALL ON AND FASTENED"},
+        { "label": "POWER Lever", "challenge": "CHECK IDLE"},
+        { "label": "Parking Brake", "challenge": "SET"},
+        { "label": "AVIONIC MASTER", "challenge": "CHECK OFF"},
+        { "label": "GEAR Selector", "challenge": "CHECK DOWN"},
+        { "label": "VOTER Switch", "challenge": "CHECK BOTH AUTO"},
+        { "label": "ALTERNATORS", "challenge": "CHECK BOTH ON"},
+        { "label": "Fuel Pump LH/RH", "challenge": "CHECK OFF"},
+        { "label": "ELECT. MASTER", "challenge": "ON"},
+        { "label": "G1000", "challenge": "POWER-UP COMPLETED"},
+        { "label": "Fuel Temperature", "challenge": "CHECK"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "STARTING ENGINE",
+      "checklistItems": [
+        { "label": "Strobe Lights (ACL)", "challenge": "ON" },
+        { "label": "ENGINE MASTER", "challenge": "ON (L)"},
+        { "label": "Annunciations", "challenge": "CHECK 'L ENGINE GLOW' ON"},
+        { "label": "Annunciations/Engine/System Page", "challenge": "CHECK OK/NORMAL RANGE"},
+        { "label": "START LEFT Button", "challenge": "PRESS"},
+        { "label": "Annunciations/Engine/System Page", "challenge": "CHECK OK/NORMAL RANGE"},
+        { "label": "Annunciations/Start", "challenge": "CHECK OFF"},
+        { "label": "Annunciations/Oil Pressure", "challenge": "CHECK OK"},
+        { "label": "Circuit Breakers", "challenge": "CHECK ALL IN/AS REQUIRED"},
+        { "label": "Idle RPM", "challenge": "CHECK, 710 +/- 30 RPM"},
+        { "label": "Opposite Engine", "challenge": "REPEAT"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "BEFORE TAXIING",
+      "checklistItems": [
+        { "label": "AVIONIC MASTER", "challenge": "ON" },
+        { "label": "Power lever", "challenge": "AS REQUIRED"},
+        { "label": "Electrical equipment", "challenge": "ON AS REQUIRED"},
+        { "label": "Flight instruments and avionics", "challenge": "SET AS REQUIRED"},
+        { "label": "Flood light", "challenge": "ON, TEST, AS REQUIRED"},
+        { "label": "Pitot and stall warn heating", "challenge": "ON, CHECK ANNUNCIATION"},
+        { "label": "Pitot and stall warn heating", "challenge": "OFF"},
+        { "label": "Strobe lights (ACLs)", "challenge": "CHECK ON"},
+        { "label": "Position lights, landing and taxi lights", "challenge": "AS REQUIRED"},
+        { "label": "Primary flight display (PFD)", "challenge": "NO AUTOPILOT ANNUNCIATIONS"},
+        { "label": "Autopilot disconnect tone", "challenge": "NOTE"},
+        { "label": "MANUAL ELECTRIC TRIM", "challenge": "TEST"},
+        { "label": "AUTOPILOT", "challenge": "ENGAGE BY PRESSING AP BUTTON"},
+        { "label": "AP DISC Switch", "challenge": "PRESS, VERIFY AUTOPILOT DISCONNECTS"},
+        { "label": "TRIM", "challenge": "TAKE-OFF POSITION"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "TAXIING",
+      "checklistItems": [
+        { "label": "Parking Brake", "challenge": "RELEASE" },
+        { "label": "Brakes", "challenge": "TEST"},
+        { "label": "Nose Wheel Steering", "challenge": "CHECK FOR PROPER FUNCTION"},
+        { "label": "Flight Instrumentation and Avionics", "challenge": "CHECK FOR CORRECT INDICATIONS"},
+        { "label": "Fuel Pumps LH/RH", "challenge": "CHECK OFF"},
+        { "label": "FUEL SELECTOR", "challenge": "CROSSFEED (LH/RH)"},
+        { "label": "FUEL SELECTOR", "challenge": "ON (LH/RH)"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "BEFORE TAKE-OFF",
+      "checklistItems": [
+        { "label": "Position Airplane", "challenge": "INTO WIND IF POSSIBLE" },
+        { "label": "Parking Brake", "challenge": "SET"},
+        { "label": "Adjustable Backrests", "challenge": "VERIFY UPRIGHT POSITION"},
+        { "label": "Safety Harness", "challenge": "ON AND FASTENED"},
+        { "label": "Passenger Door", "challenge": "CHECK CLOSED AND LOCKED"},
+        { "label": "LH & RH Pilot Doors", "challenge": "CLOSED AND LOCKED"},
+        { "label": "Front Baggage Doors", "challenge": "CLOSED"},
+        { "label": "Door Warning (DOOR OPEN)", "challenge": "CHECK NO INDICATION"},
+        { "label": "Annunciations/Engine/System Page", "challenge": "CHECK OK / NORMAL RANGE"},
+        { "label": "Circuit Breakers", "challenge": "CHECK PRESSED IN"},
+        { "label": "Longitudinal Trim", "challenge": "SET T/O"},
+        { "label": "FUEL SELECTOR", "challenge": "CHECK ON (LH/RH)"},
+        { "label": "Directional Trim", "challenge": "CENTERED"},
+        { "label": "FLAPS", "challenge": "CHECK FUNCTION & INDICATOR / SET T/O"},
+        { "label": "Flight Controls", "challenge": "CHECK"},
+        { "label": "PITOT HEAT", "challenge": "ON, IF REQUIRED"},
+        { "label": "Landing Light", "challenge": "ON, IF REQUIRED"},
+        { "label": "Power Lever", "challenge": "IDLE"},
+        { "label": "Propeller RPM", "challenge": "CHECK BELOW 1000 RPM"},
+        { "label": "Fuel Pumps", "challenge": "CHECK OFF"},
+        { "label": "VOTER Switch", "challenge": "ECU A"},
+        { "label": "Engine", "challenge": "CHECK RUNNING WITHOUT A CHANGE"},
+        { "label": "VOTER Switch", "challenge": "AUTO"},
+        { "label": "Engine", "challenge": "CHECK RUNNING WITHOUT A CHANGE"},
+        { "label": "VOTER Switch", "challenge": "ECU B"},
+        { "label": "Engine", "challenge": "CHECK RUNNING WITHOUT A CHANGE"},
+        { "label": "VOTER Switch", "challenge": "AUTO"},
+        { "label": "Engine/Gearbox Oil Temperature", "challenge": "CHECK IN THE GREEN RANGE"},
+        { "label": "Parking Brake", "challenge": "CHECK SET"},
+        { "label": "ECU TEST Button", "challenge": "PRESS AND HOLD"},
+        { "label": "ECU A/B FAIL Lights", "challenge": "ON"},
+        { "label": "Propeller RPM", "challenge": "INCREASE ABOVE 1800 RPM"},
+        { "label": "Propeller RPM", "challenge": "DECREASE"},
+        { "label": "Propeller RPM", "challenge": "INCREASE ABOVE 1800 RPM"},
+        { "label": "Propeller RPM", "challenge": "DECREASE TO IDLE"},
+        { "label": "Propeller RPM", "challenge": "INCREASE ABOVE 1800 RPM"},
+        { "label": "Propeller RPM", "challenge": "DECREASE"},
+        { "label": "Propeller RPM", "challenge": "INCREASE ABOVE 1800 RPM"},
+        { "label": "Propeller RPM", "challenge": "DECREASE TO IDLE"},
+        { "label": "ECU A/B FAIL Lights", "challenge": "BOTH OFF"},
+        { "label": "ECU TEST Button", "challenge": "RELEASE"},
+        { "label": "POWER Lever", "challenge": "MAX FOR 10 SECONDS"},
+        { "label": "Annunciations", "challenge": "CHECK OK / NORMAL RANGE"},
+        { "label": "Instruments", "challenge": "CHECK WITHIN NORMAL RANGE"},
+        { "label": "RPM", "challenge": "STABILIZES AT 2250 TO 2300 RPM"},
+        { "label": "LOAD Indication", "challenge": "STABILIZES AT 89% TO 100%"},
+        { "label": "POWER Lever", "challenge": "IDLE"},
+        { "label": "Engine Instruments", "challenge": "CHECK IN GREEN RANGE"},
+        { "label": "Fuel Pumps LH/RH", "challenge": "ON"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "TAKE-OFF",
+      "checklistItems": [
+        { "label": "Transponder", "challenge": "AS REQUIRED" },
+        { "label": "POWER Lever", "challenge": "MAX"},
+        { "label": "Elevator", "challenge": "NEUTRAL"},
+        { "label": "Rudder", "challenge": "MAINTAIN DIRECTION"},
+        { "label": "Nose Wheel Lift-off", "challenge": "VR 76/78 KIAS"},
+        { "label": "Airspeed For Initial Climb", "challenge": "83/86 KIAS"},
+        { "label": "LANDING GEAR", "challenge": "APPLY BRAKES; UP; UNSAFE LIGHT OFF"},
+        { "label": "ALTERNATE AIR", "challenge": "OPEN IN RAIN/SNOW/VISIBLE MOISTURE"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "CLIMB",
+      "checklistItems": [
+        { "label": "Landing Light", "challenge": "OFF / AS REQUIRED" },
+        { "label": "Landing Gear", "challenge": "CHECK UP"},
+        { "label": "FLAPS", "challenge": "CHECK UP"},
+        { "label": "Fuel Pumps LH/RH", "challenge": "OFF"},
+        { "label": "Airspeed, Best Rate-of-Climb", "challenge": "87/89 KIAS"},
+        { "label": "Airspeed, Enroute", "challenge": "93/96 KIAS"},
+        { "label": "POWER Lever", "challenge": "UP TO 95%"},
+        { "label": "Trim", "challenge": "AS REQUIRED (BALL CENTERED)"},
+        { "label": "Annunciations/Engine/System Page", "challenge": "MONITOR"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "CRUISE",
+      "checklistItems": [
+        { "label": "POWER Lever", "challenge": "UP TO 95%" },
+        { "label": "POWER Lever", "challenge": "RECOMMENDED 75%"},
+        { "label": "Annunciations/Engine/System Page", "challenge": "MONITOR"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "DESCENT",
+      "checklistItems": [
+        { "label": "POWER Lever", "challenge": "AS REQUIRED" },
+        { "label": "Airspeed", "challenge": "AS REQUIRED"},
+        { "label": "Annunciations/Engine/System Page", "challenge": "MONITOR"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "APPROACH & LANDING",
+      "checklistItems": [
+        { "label": "Adjustable Backrests", "challenge": "ADJUST TO THE UPRIGHT POSITION" },
+        { "label": "Safety Harnesses", "challenge": "CHECK FASTENED AND TIGHTENED"},
+        { "label": "Yaw Damper", "challenge": "CHECK OFF"},
+        { "label": "Controls", "challenge": "NO INTERFERENCE BY FOREIGN OBJECTS"},
+        { "label": "Landing Light", "challenge": "AS REQUIRED"},
+        { "label": "Gear Warning Horn", "challenge": "CHECK FUNCTION"},
+        { "label": "FUEL SELECTOR", "challenge": "CHECK BOTH ON"},
+        { "label": "Fuel Pumps LH/RH", "challenge": "ON"},
+        { "label": "LANDING GEAR", "challenge": "DOWN, CHECK 3 GREEN"},
+        { "label": "Parking Brake", "challenge": "CHECK RELEASED"},
+        { "label": "Trim", "challenge": "AS REQUIRED"},
+        { "label": "Airspeed Flaps UP", "challenge": "91/95 KIAS"},
+        { "label": "Airspeed Flaps T/O", "challenge": "88/91 KIAS"},
+        { "label": "FLAPS", "challenge": "AS REQUIRED"},
+        { "label": "POWER Lever", "challenge": "AS REQUIRED"},
+        { "label": "Trim", "challenge": "AS REQUIRED"},
+        { "label": "Final Approach Speed Flaps LDG", "challenge": "84/89 KIAS"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "GO AROUND",
+      "checklistItems": [
+        { "label": "POWER Lever", "challenge": "MAX" },
+        { "label": "FLAPS", "challenge": "POSITION T/O"},
+        { "label": "Airspeed", "challenge": "88/91 KIAS"},
+        { "label": "Positive Rate of Climb", "challenge": "ESTABLISHED"},
+        { "label": "FLAPS", "challenge": "RETRACT, POSITION UP"},
+        { "label": "Fuel Pumps LH/RH", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "AFTER LANDING",
+      "checklistItems": [
+        { "label": "POWER Lever", "challenge": "IDLE" },
+        { "label": "Brakes", "challenge": "AS REQUIRED"},
+        { "label": "ALTERNATE AIR", "challenge": "CLOSED"},
+        { "label": "PITOT HEAT", "challenge": "OFF"},
+        { "label": "Avionics", "challenge": "AS REQUIRED"},
+        { "label": "Lights", "challenge": "AS REQUIRED"},
+        { "label": "FLAPS", "challenge": "UP"},
+        { "label": "Fuel Pumps LH/RH", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "SHUT-DOWN",
+      "checklistItems": [
+        { "label": "Parking Brake", "challenge": "SET" },
+        { "label": "POWER Lever", "challenge": "UP TO 10% LOAD FOR 1 MINUTE"},
+        { "label": "Engine/System Page", "challenge": "CHECK"},
+        { "label": "ELT", "challenge": "CHECK NOT ACTIVATED"},
+        { "label": "AVIONIC MASTER", "challenge": "OFF"},
+        { "label": "Electrical Consumers", "challenge": "OFF"},
+        { "label": "ENGINE MASTER", "challenge": "OFF"},
+        { "label": "Anti Collision Lights (ACL)", "challenge": "OFF"},
+        { "label": "ELECT. MASTER", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "PARKING",
+      "checklistItems": [
+        { "label": "Parking Brake", "challenge": "RELEASE, USE CHOCKS" },
+        { "label": "Airplane", "challenge": "MOOR IF UNSUPERVISED FOR EXTENDED PERIOD"},
+        { "label": "Pitot Probe", "challenge": "COVER"}
+      ]
+    }
+  ]
+}

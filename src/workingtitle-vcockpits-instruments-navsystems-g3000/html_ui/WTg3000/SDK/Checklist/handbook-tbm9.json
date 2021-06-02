@@ -1,0 +1,309 @@
+{
+  "airplaneIcao": "TBM9",
+  "checklists": [
+    {
+      "groupName": "GROUPA",
+      "checklistName": "INSIDE INSPECTION",
+      "checklistItems": [
+        { "label": "CABIN DOOR and PILOT DOOR", "challenge": "CLOSED/LOCKED" },
+        { "label": "BAGGAGE", "challenge": "STOWED"},
+        { "label": "EMERGENCY EXIT PIN", "challenge": "REMOVED"},
+        { "label": "SEAT,PEDALS,HARNESS", "challenge": "ADJUST/LOCK"},
+        { "label": "PASSENGER OXYGEN SWITCH", "challenge": "DEPLOY/STBY"},
+        { "label": "OXYGEN MASTER SWITCH", "challenge": "ON"},
+        { "label": "CREW OXYGEN MASKS", "challenge": "TESTED"},
+        { "label": "EXT. LIGHTS", "challenge": "OFF"},
+        { "label": "INT. LIGHTS", "challenge": "OFF"},
+        { "label": "CRASH LEVER", "challenge": "DOWN"},
+        { "label": "STARTER", "challenge": "OFF"},
+        { "label": "IGNITION", "challenge": "AUTO"},
+        { "label": "AUX BP", "challenge": "OFF"},
+        { "label": "FUEL SEL", "challenge": "MAN"},
+        { "label": "AP / TRIMS", "challenge": "OFF"},
+        { "label": "A/C", "challenge": "OFF"},
+        { "label": "CB LIGHTS", "challenge": "OFF"},
+        { "label": "MICRO/MASK", "challenge": "MICRO/GUARDED"},
+        { "label": "DE-ICE SYSTEMS", "challenge": "ALL OFF"},
+        { "label": "INERT SEP", "challenge": "OFF"},
+        { "label": "PARKING BRAKE", "challenge": "RESET / ON"},
+        { "label": "LGR LEVER", "challenge": "DOWN"},
+        { "label": "DUMP", "challenge": "NORM/GUARDED"},
+        { "label": "BLEED", "challenge": "OFF"},
+        { "label": "HOT AIRFLOW", "challenge": "FLOOR"},
+        { "label": "MANOVRD", "challenge": "OFF"},
+        { "label": "THROTTLE", "challenge": "CUTOFF"},
+        { "label": "FUEL TANK SELECTOR", "challenge": "OPEN / L OR R"},
+        { "label": "EMERGENCY STATIC SOURCE", "challenge": "NORMAL / PUSHED"},
+        { "label": "RAM AIR", "challenge": "CLOSED / GUARDED"},
+        { "label": "ESS. BUS TIE SWITCH", "challenge": "NORM / GUARDED"},
+        { "label": "CIRCUIT BREAKERS", "challenge": "ALL IN"},
+        { "label": "EMERGENCY LANDING GEAR CONTROL", "challenge": "CHECK"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "BEFORE STARTING ENGINE",
+      "checklistItems": [
+        { "label": "CRASH LEVER", "challenge": "UP" },
+        { "label": "ATIS / START CLEARANCE", "challenge": "COPIED / AS REQUIRED"},
+        { "label": "SOURCE", "challenge": "BAT OR GPU"},
+        { "label": "GENERATOR", "challenge": "MAIN"},
+        { "label": "AUDIO ALARMS", "challenge": "TEST"},
+        { "label": "DE-ICE SYSTEM LIGHTS", "challenge": "TEST"},
+        { "label": "LANDING GEAR LIGHTS / CHECK DOWN", "challenge": "TEST"},
+        { "label": "MFD", "challenge": "INITIALISED"},
+        { "label": "FUEL ON BOARD", "challenge": "CHECK"},
+        { "label": "RESIDUAL ITT (monitoring if ITT > 150°C)", "challenge": "CHECK"},
+        { "label": "VOLTAGE : BAT > 24.5 V / GPU ~28V", "challenge": "CHECK"},
+        { "label": "CAS", "challenge": "CHECK"},
+        { "label": "MONITORING (OPTIONAL if residual ITT > 150°C", "challenge": "CHECK"},
+        { "label": "IGNITION", "challenge": "OFF"},
+        { "label": "AUX BP", "challenge": "ON"},
+        { "label": "CAS MSG : AUX BOOST PMP ON", "challenge": "ON"},
+        { "label": "PROP AREA", "challenge": "CLEAR"},
+        { "label": "STARTER", "challenge": "ON (2sec then OFF)"},
+        { "label": "AUX BP", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "ENGINE START",
+      "checklistItems": [
+        { "label": "IGNITION", "challenge": "AUTO" },
+        { "label": "AUX BP", "challenge": "ON"},
+        { "label": "CAS MSG AUX BOOST PMP ON", "challenge": "CHECK"},
+        { "label": "PROPELLER AREA", "challenge": "CLEAR"},
+        { "label": "STARTER", "challenge": "ON (2sec THEN OFF)"},
+        { "label": "NG 13% > THROTTLE", "challenge": "LO-IDLE"},
+        { "label": "ITT", "challenge": "MAX 870° 20sec / 1000° 5sec"},
+        { "label": "NG", "challenge": "30% 30 sec / 50% 1 min"},
+        { "label": "OIL", "challenge": "PRESS. / TEMP."},
+        { "label": "NG 52% (1min MAX), OFF AUTOMATIC STARTER", "challenge": "CHECK"},
+        { "label": "AFTER ABORT", "challenge": "WAIT 1min, 5min, 30min"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "AFTER ENGINE START WITH GPU",
+      "checklistItems": [
+        { "label": "SOURCE SELECTOR", "challenge": "BAT" },
+        { "label": "GPU", "challenge": "DISCONNECTED"},
+        { "label": "CAS MSG GPU DOOR", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "AFTER ENGINE START",
+      "checklistItems": [
+        { "label": "THROTTLE", "challenge": "LO IDLE > FLIGHT IDLE" },
+        { "label": "NG 70% (+/-2%)", "challenge": "CHECK"},
+        { "label": "OIL PRESS./TEMP.", "challenge": "CHECK"},
+        { "label": "AUX BP", "challenge": "AUTO" },
+        { "label": "FUEL SEL", "challenge": "AUTO"},
+        { "label": "FUEL SEL SHIFT BUTTON", "challenge": "TEST"},
+        { "label": "AP / TRIMS", "challenge": "ON" },
+        { "label": "GENERATOR", "challenge": "ST-BY / TEST"},
+        { "label": "GENERATOR", "challenge": "MAIN"},
+        { "label": "CAS", "challenge": "CHECK" },
+        { "label": "A/C", "challenge": "AS REQUIRED"},
+        { "label": "BLEED", "challenge": "AUTO OR MAX DIFF"}
+
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "BEFORE TAXIING",
+      "checklistItems": [
+        { "label": "STAND-BY INSTRUMENTS", "challenge": "CHECK" },
+        { "label": "MFD - FPL", "challenge": "SET"},
+        { "label": "MFD - LFE", "challenge": "SET / CHECK"},
+        { "label": "MFD - WX RADAR", "challenge": "SBY"},
+        { "label": "DE-ICE SYSTEMS", "challenge": "TEST"},
+        { "label": "INERT SEP", "challenge": "ON"},
+        { "label": "FLIGHT CONTROLS", "challenge": "CHECK"},
+        { "label": "TRIMS", "challenge": "TEST"},
+        { "label": "FLAPS", "challenge": "UP"},
+        { "label": "THROTTLE", "challenge": "FEATHER TWICE"},
+        { "label": "EIS", "challenge": "CHECK"},
+        { "label": "CAS", "challenge": "CHECK"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "BEFORE LINE UP",
+      "checklistItems": [
+        { "label": "LDG LIGHTS", "challenge": "ON" },
+        { "label": "STROBES", "challenge": "ON"},
+        { "label": "IGNITION (AUTO or ON)", "challenge": "AS REQUIRED"},
+        { "label": "AUX BP", "challenge": "AUTO"},
+        { "label": "FUEL SEL", "challenge": "AUTO"},
+        { "label": "DE-ICE SYSTEMS", "challenge": "AS REQUIRED"},
+        { "label": "PITOT L / PITOT R & STALL HTR", "challenge": "ON"},
+        { "label": "INERT SEP", "challenge": "AS REQUIRED"},
+        { "label": "TRIMS", "challenge": "TO"},
+        { "label": "FLAPS", "challenge": "TO"},
+        { "label": "A/C", "challenge": "AS REQUIRED"},
+        { "label": "BLEED", "challenge": "AUTO or MAX DIFF"},
+        { "label": "LFE", "challenge": "CHECK"},
+        { "label": "FUEL GAGES (IMBALANCE)", "challenge": "CHECK"},
+        { "label": "AMMETER < 50 amp", "challenge": "CHECK"},
+        { "label": "EIS", "challenge": "CHECK"},
+        { "label": "CAS", "challenge": "CHECK"},
+        { "label": "ALTIMETER SETTING", "challenge": "SET / CHECK"},
+        { "label": "SID (PROC)", "challenge": "SET"},
+        { "label": "ALT SEL", "challenge": "SET"},
+        { "label": "XPDR Squawk", "challenge": "SET"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "TAKEOFF",
+      "checklistItems": [
+        { "label": "ADI / HSI / HEADING", "challenge": "CHECK" },
+        { "label": "PROP SPEED", "challenge": "GREEN SECTOR"},
+        { "label": "BRAKES", "challenge": "RELEASED"},
+        { "label": "TORQUE", "challenge": "100%"},
+        { "label": "ROTATION SPEED", "challenge": "PITCH UP : 10°"},
+        { "label": "POSITIVE VERTICAL SPEED", "challenge": "BRAKES / GEAR UP"},
+        { "label": "IAS > 115 kts", "challenge": "FLAPS UP"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "AFTER TAKEOFF",
+      "checklistItems": [
+        { "label": "LANDING GEAR", "challenge": "UP" },
+        { "label": "FLAPS", "challenge": "UP"},
+        { "label": "TRQ MAX 100%", "challenge": "CHECK"},
+        { "label": "EIS", "challenge": "CHECK" },
+        { "label": "CAS", "challenge": "CHECK"},
+        { "label": "DE-ICE SYSTEMS", "challenge": "AS REQUIRED"},
+        { "label": "INERT SEP", "challenge": "AS REQUIRED" }
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "CLIMB",
+      "checklistItems": [
+        { "label": "ALT SEL", "challenge": "CHECK" },
+        { "label": "ALTIMETER SETTING", "challenge": "AS REQUIRED"},
+        { "label": "AUTOPILOT", "challenge": "CHECK"},
+        { "label": "TORQUE ADJUSTMENT / ITT / NG", "challenge": "CHECK" },
+        { "label": "EIS", "challenge": "CHECK"},
+        { "label": "CAS", "challenge": "CHECK"},
+        { "label": "PRESSURIZATION", "challenge": "CHECK" },
+        { "label": "FUEL GAGES", "challenge": "CHECK"},
+        { "label": "VOLTMETER / AMMETER", "challenge": "CHECK"},
+        { "label": "DE-ICE SYSTEMS", "challenge": "AS REQUIRED" },
+        { "label": "INERT SEP", "challenge": "AS REQUIRED"},
+        { "label": "LDG LIGHTS", "challenge": "AS REQUIRED"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "CRUISE",
+      "checklistItems": [
+        { "label": "ALTIMETERS SETTING", "challenge": "CHECK" },
+        { "label": "AUTOPILOT", "challenge": "CHECK"},
+        { "label": "TORQUE ADJUSTMENT / ITT / NG", "challenge": "CHECK"},
+        { "label": "EIS", "challenge": "CHECK" },
+        { "label": "CAS", "challenge": "CHECK"},
+        { "label": "PRESSURIZATION", "challenge": "CHECK"},
+        { "label": "FUEL GAGES", "challenge": "CHECK" },
+        { "label": "VOLTMETER / AMMETER", "challenge": "CHECK"},
+        { "label": "DE-ICE SYSTEMS", "challenge": "AS REQUIRED"},
+        { "label": "INERT SEP", "challenge": "AS REQUIRED" },
+        { "label": "LDG LIGHTS", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "BEFORE DESCENT",
+      "checklistItems": [
+        { "label": "BREIFING BEFORE APPROACH", "challenge": "COMPLETED" },
+        { "label": "ALTIMETER SETTING", "challenge": "CHECK"},
+        { "label": "PRESSURIZATION", "challenge": "CHECK"},
+        { "label": "LFE", "challenge": "CHECK"},
+        { "label": "FUEL GAGES", "challenge": "CHECK"},
+        { "label": "VOLTMETER / AMMETER", "challenge": "CHECK"},
+        { "label": "DE-ICE SYSTEMS", "challenge": "AS REQUIRED"},
+        { "label": "INERT SEP", "challenge": "AS REQUIRED"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "APPROACH",
+      "checklistItems": [
+        { "label": "ALTIMETERS SETTING (QNH)", "challenge": "SET / CHECK" },
+        { "label": "MINIMUMS", "challenge": "SET / CHECK"},
+        { "label": "COM / NAV / GPS", "challenge": "SET / CHECK"},
+        { "label": "PRESSURIZATION", "challenge": "CHECK" },
+        { "label": "LFE", "challenge": "CHECK"},
+        { "label": "FUEL GAGES", "challenge": "CHECK"},
+        { "label": "VOLTMETER / AMMETER", "challenge": "CHECK" },
+        { "label": "DE-ICE SYSTEMS", "challenge": "AS REQUIRED"},
+        { "label": "INERT SEP", "challenge": "AS REQUIRED"},
+        { "label": "LDG LIGHT (below FL 100)", "challenge": "ON" }
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "FINAL APPROACH (IN GS) OR DOWN WIND LEG (VMC)",
+      "checklistItems": [
+        { "label": "LDG LIGHTS", "challenge": "ON" },
+        { "label": "INERT SEP", "challenge": "ON"},
+        { "label": "LANDING GEAR", "challenge": "DN - 3 GREEN"},
+        { "label": "FLAPS", "challenge": "TO"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "SHORT FINAL (~500 ft)",
+      "checklistItems": [
+        { "label": "LANDING GEAR", "challenge": "DN - 3 GREEN" },
+        { "label": "FLAPS", "challenge": "LDG"},
+        { "label": "AP / YAW / DAMPER", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "RUNWAY CLEAR",
+      "checklistItems": [
+        { "label": "LDG LIGHTS", "challenge": "OFF" },
+        { "label": "TAXI LIGHT", "challenge": "ON"},
+        { "label": "DE-ICE SYSTEMS", "challenge": "OFF"},
+        { "label": "INERT SEP", "challenge": "ON" },
+        { "label": "TRIMS", "challenge": "RESET"},
+        { "label": "FLAPS", "challenge": "UP"},
+        { "label": "A/C", "challenge": "AS REQUIRED" },
+        { "label": "TRANSPONDER 'GND'", "challenge": "CHECK"},
+        { "label": "RADAR 'STAND BY'", "challenge": "CHECK"}
+      ]
+    },
+    {
+      "groupName": "GROUPA",
+      "checklistName": "SHUT-DOWN",
+      "checklistItems": [
+        { "label": "PARKING BRAKE", "challenge": "SET" },
+        { "label": "EXT LIGHTS", "challenge": "OFF"},
+        { "label": "INT LIGHTS", "challenge": "AS REQUIRED"},
+        { "label": "OXYGEN MASTER SWITCH", "challenge": "OFF" },
+        { "label": "FUEL SEL", "challenge": "MAN"},
+        { "label": "AP TRIMS", "challenge": "OFF"},
+        { "label": "A/C", "challenge": "OFF" },
+        { "label": "BLEED", "challenge": "OFF"},
+        { "label": "THROTTLE", "challenge": "FLIGHT IDLE FOR 2 MIN"},
+        { "label": "THROTTLE", "challenge": "LO IDLE FOR 15 SEC" },
+        { "label": "THROTTLE", "challenge": "CUT OFF"},
+        { "label": "INERT SEP", "challenge": "OFF"},
+        { "label": "CAS MSG AUX BOOST PMP ON", "challenge": "CHECK" },
+        { "label": "AUX BP", "challenge": "OFF"},
+        { "label": "GENERATOR", "challenge": "OFF"},
+        { "label": "SOURCE (if INERT SEP retracted / ~40 sec)", "challenge": "OFF" },
+        { "label": "CRASH LEVER", "challenge": "DOWN"},
+        { "label": "STAND-BY INSTRUMENTS", "challenge": "OFF"}
+      ]
+    }
+
+  ]
+}
