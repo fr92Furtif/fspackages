@@ -1,0 +1,258 @@
+{
+  "airplaneIcao": "C172",
+  "checklists": [
+    {
+      "groupName": "GROUP1",
+      "checklistName": "AIRCRAFT ACCEPTANCE",
+      "checklistItems": [
+        { "label": "Pilot Tube Cover", "challenge": "REMOVE" },
+        { "label": "Maintenance Status / Tachometer", "challenge": "CHECKED"},
+        { "label": "Magnetos", "challenge": "CHECK OFF"},
+        { "label": "Control Lock", "challenge": "REMOVE"},
+        { "label": "Master Switch", "challenge": "ON"},
+        { "label": "Avionics Switch (Bus 1 & Bus 2)", "challenge": "OFF"},
+        { "label": "Primary Flight Display", "challenge": "VERIFY ON"},
+        { "label": "Fuel Quantity", "challenge": "CHECK (reset used)"},
+        { "label": "Low Fuel Annunciator", "challenge": "VERIFY OFF"},
+        { "label": "Oil Pressure Annunciator", "challenge": "VERIFY ON"},
+        { "label": "Low Volts Annunciator", "challenge": "VERIFY ON"},
+        { "label": "Low Vacuum Annunciator", "challenge": "VERIFY ON"},
+        { "label": "Avionics Switch (Bus 1)", "challenge": "ON"},
+        { "label": "Forward Avionics Fan", "challenge": "CHECK OPERATION"},
+        { "label": "Avionics Switch (Bus 1)", "challenge": "OFF"},
+        { "label": "Avionics Switch (Bus 2)", "challenge": "ON"},
+        { "label": "Aft. Avionics Fan", "challenge": "CHECK OPERATION"},
+        { "label": "Avionics Switch (Bus 2)", "challenge": "OFF"},
+        { "label": "Pilot Heat", "challenge": "CHECKED"},
+        { "label": "Master Switch", "challenge": "OFF"},
+        { "label": "Alternate Static Air", "challenge": "OFF"},
+        { "label": "Trim Controls", "challenge": "TAKEOFF POSITION"},
+        { "label": "Fuel Shutoff Valve", "challenge": "ON"},
+        { "label": "Fuel Selector Valve", "challenge": "BOTH"},
+        { "label": "Fire Extinguisher", "challenge": "CHECKED"},
+        { "label": "Hobbs", "challenge": "RECORDED"},
+        { "label": "AR(R)OW", "challenge": "CHECKED"},
+        { "label": "G1000 Reference Guide", "challenge": "ACCESSIBLE"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "BEFORE STARTING ENGINE",
+      "checklistItems": [
+        { "label": "Preflight inspection", "challenge": "COMPLETE" },
+        { "label": "Seat Belts / Harnesses", "challenge": "ON"},
+        { "label": "Doors", "challenge": "CLOSED AND LATCHED"},
+        { "label": "Passenger Briefing.", "challenge": "COMPLETE"},
+        { "label": "Circuit Breakers", "challenge": "CHECKED IN"},
+        { "label": "Electrical Equipment", "challenge": "OFF"},
+        { "label": "Avionics Switch", "challenge": "OFF"},
+        { "label": "Fuel Selector", "challenge": "BOTH"},
+        { "label": "Brakes", "challenge": "SET"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "STARTING ENGINE",
+      "checklistItems": [
+        { "label": "Throttle", "challenge": "OPEN 1⁄4 INCH" },
+        { "label": "Mixture Control.", "challenge": "IDLE CUT-OFF"},
+        { "label": "Standby Battery Swich", "challenge": "TEST then ARM"},
+        { "label": "Engine Indication System", "challenge": "CHECKED"},
+        { "label": "Bus E Volts", "challenge": "VERIFY 24 VOLTS MIN."},
+        { "label": "M Bus Bolts", "challenge": "VERIFY ≤ 1.5 VOLTS"},
+        { "label": "Battery S Amps", "challenge": "VERIFY DISCHARGE"},
+        { "label": "Standby Battery Annunciator", "challenge": "VERIFY ON"},
+        { "label": "Propeller Area", "challenge": "CLEAR"},
+        { "label": "Master Switch", "challenge": "ON"},
+        { "label": "Beacon", "challenge": "ON"},
+        { "label": "Fuel Pump", "challenge": "AS REQUIRED" },
+        { "label": "Mixture Control", "challenge": "IF REQUIRED ADVANCE to FULL RICH/PRIME"},
+        { "label": "Mixture Control", "challenge": "IDLE CUT-OFF"},
+        { "label": "Fuel Pump", "challenge": "OFF"},
+        { "label": "Magneto Switch", "challenge": "START"},
+        { "label": "Mixture Control", "challenge": "ADVANCE AFTER START"},
+        { "label": "Oil Pressure", "challenge": "CHECK"},
+        { "label": "Throttle", "challenge": "1000 RPM"},
+        { "label": "AMPS", "challenge": "CHECK POSITIVE CHARGE"},
+        { "label": "Low Volts Annunciator", "challenge": "VERIFY OFF"},
+        { "label": "Avionics Switch (Bus 1 & Bus 2).", "challenge": "ON"},
+        { "label": "Lights", "challenge": "AS REQUIRED"},
+        { "label": "Mixture", "challenge": "AS REQUIRED"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "BEFORE TAXIING",
+      "checklistItems": [
+        { "label": "AVIONIC MASTER", "challenge": "ON" },
+        { "label": "Power lever", "challenge": "AS REQUIRED"},
+        { "label": "Electrical equipment", "challenge": "ON AS REQUIRED"},
+        { "label": "Flight instruments and avionics", "challenge": "SET AS REQUIRED"},
+        { "label": "Flood light", "challenge": "ON, TEST, AS REQUIRED"},
+        { "label": "Pitot and stall warn heating", "challenge": "ON, CHECK ANNUNCIATION"},
+        { "label": "Pitot and stall warn heating", "challenge": "OFF"},
+        { "label": "Strobe lights (ACLs)", "challenge": "CHECK ON"},
+        { "label": "Position lights, landing and taxi lights", "challenge": "AS REQUIRED"},
+        { "label": "Primary flight display (PFD)", "challenge": "NO AUTOPILOT ANNUNCIATIONS"},
+        { "label": "Autopilot disconnect tone", "challenge": "NOTE"},
+        { "label": "MANUAL ELECTRIC TRIM", "challenge": "TEST"},
+        { "label": "AUTOPILOT", "challenge": "ENGAGE BY PRESSING AP BUTTON"},
+        { "label": "AP DISC Switch", "challenge": "PRESS, VERIFY AUTOPILOT DISCONNECTS"},
+        { "label": "TRIM", "challenge": "TAKE-OFF POSITION"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "TAXI",
+      "checklistItems": [
+        { "label": "Seat / Seat Belts", "challenge": "SECURE"},
+        { "label": "Brakes / Steering", "challenge": "CHECKED"},
+        { "label": "Instruments", "challenge": "CHECKED"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "BEFORE TAKE-OFF",
+      "checklistItems": [
+        { "label": "Position Airplane", "challenge": "INTO WIND IF POSSIBLE" },
+        { "label": "Parking Brake", "challenge": "SET"},
+        { "label": "Pilot and Passenger Seat Backs", "challenge": "MOST UPRIGHT POSITION"},
+        { "label": "Seats and Seat Belts", "challenge": "CHECK SECURE"},
+        { "label": "Cabin Doors", "challenge": "CLOSED and LOCKED"},
+        { "label": "Flight Controls", "challenge": "FREE and CHECKED"},
+        { "label": "Flight Instruments (PFD)", "challenge": "CHECK (no red X’s)"},
+        { "label": "Altimeters:PFD (BARO)", "challenge": "SET"},
+        { "label": "Altimeters:Standby Altimeter", "challenge": "SET"},
+        { "label": "Altimeters:ALT SEL", "challenge": "SET"},
+        { "label": "Standby Flight Instruments", "challenge": "CHECK"},
+        { "label": "Fuel Quantity", "challenge": "CHECK (verify level is correct)"},
+        { "label": "Mixture Control", "challenge": "RICH"},
+        { "label": "FUEL SELECTOR Valve", "challenge": "SET BOTH"},
+        { "label": "Autopilot", "challenge": "CHECK (if applicable)"},
+        { "label": "Electric Trim Control", "challenge": "SET FOR TAKEOFF"},
+        { "label": "Throttle Control", "challenge": "1800 RPM"},
+        { "label": "MAGNETOS Switch", "challenge": "CHECK (Max. 150 rpm/ 50 diff)"},
+        { "label": "VAC Indicator", "challenge": "CHECK"},
+        { "label": "Engine Indicators", "challenge": "CHECK"},
+        { "label": "Ammeters and Voltmeters", "challenge": "CHECK"},
+        { "label": "Annunciators", "challenge": "CHECK (verify none shown)"},
+        { "label": "Throttle Control", "challenge": "CHECK IDLE"},
+        { "label": "Throttle Control", "challenge": "1000 RPM or LESS"},
+        { "label": "Throttle Control Friction Lock", "challenge": "ADJUST"},
+        { "label": "Mixture", "challenge": "AS REQUIRED"},
+        { "label": "COM Frequency(s)", "challenge": "SET"},
+        { "label": "NAV Frequency(s)", "challenge": "SET"},
+        { "label": "FMS/GPS Flight Plan", "challenge": "AS DESIRED"},
+        { "label": "XPDR", "challenge": "SET"},
+        { "label": "CDI Soft Key", "challenge": "SELECT NAV SOURCE"},
+        { "label": "Departure Briefing", "challenge": "COMPLETE"},
+        { "label": "CABIN PWR 12V Switch", "challenge": "OFF"},
+        { "label": "Wing Flaps", "challenge": "UP – 10˚ (10˚ preferred)"},
+        { "label": "Cabin Windows", "challenge": "CLOSED and LOCKED"},
+        { "label": "STROBE Light Switch", "challenge": "ON"},
+        { "label": "Brakes", "challenge": "RELEASE"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "LINE UP",
+      "checklistItems": [
+        { "label": "Flaps and Trim", "challenge": "SET" },
+        { "label": "Exterior Lights", "challenge": "ON"},
+        { "label": "Pitot Heat", "challenge": "AS REQUIRED"},
+        { "label": "Mixture", "challenge": "RICH (BELOW 3000 PRESSURE ACTUAL)"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "CLIMB",
+      "checklistItems": [
+        { "label": "Flaps", "challenge": "UP"},
+        { "label": "Mixture", "challenge": "AS REQUIRED"},
+        { "label": "Engine Gauges", "challenge": "CHECKED"},
+        { "label": "Airspeed", "challenge": "VY (74) until 1000’ then 75-85 KIAS"},
+        { "label": "Trim", "challenge": "SET"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "CRUISE",
+      "checklistItems": [
+        { "label": "Power", "challenge": "SET" },
+        { "label": "Trim", "challenge": "SET"},
+        { "label": "Mixture", "challenge": "AS REQUIRED"},
+        { "label": "Landing Light", "challenge": "AS REQUIRED" },
+        { "label": "Flight Instruments", "challenge": "CHECKED"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "DESCENT",
+      "checklistItems": [
+        { "label": "Weather", "challenge": "CHECKED" },
+        { "label": "Power", "challenge": "AS REQUIRED"},
+        { "label": "Mixture", "challenge": "AS REQUIRED"},
+        { "label": "Trim", "challenge": "SET" },
+        { "label": "Altimeters", "challenge": "SET"},
+        { "label": "CDI Soft Key", "challenge": "SELECT NAV SOURCE"},
+        { "label": "Exterior Lights", "challenge": "AS REQUIRED"},
+        { "label": "Approach Briefing", "challenge": "COMPLETE"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "BEFORE LANDING",
+      "checklistItems": [
+        { "label": "Passenger Briefing", "challenge": "COMPLETE"},
+        { "label": "Seat Belts / Harnesses", "challenge": "ON"},
+        { "label": "Fuel Selector", "challenge": "BOTH"},
+        { "label": "Mixture", "challenge": "AS REQUIRED"},
+        { "label": "Airspeed", "challenge": "65-75 FLAPS UP / 60-70 FULL FLAPS"},
+        { "label": "Flaps", "challenge": "SET"},
+        { "label": "Landing Light", "challenge": "ON"},
+        { "label": "Autopilot", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "GO AROUND",
+      "checklistItems": [
+        { "label": "POWER Lever", "challenge": "MAX" },
+        { "label": "FLAPS", "challenge": "POSITION T/O"},
+        { "label": "Airspeed", "challenge": "88/91 KIAS"},
+        { "label": "Positive Rate of Climb", "challenge": "ESTABLISHED"},
+        { "label": "FLAPS", "challenge": "RETRACT, POSITION UP"},
+        { "label": "Fuel Pumps", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "AFTER LANDING",
+      "checklistItems": [
+        { "label": "Landing Light/Anti-Collision Light", "challenge": "OFF" },
+        { "label": "Trim", "challenge": "RESET"},
+        { "label": "Mixture", "challenge": "AS REQUIRED"},
+        { "label": "Flaps", "challenge": "UP"},
+        { "label": "Pitot Heat", "challenge": "OFF"}
+      ]
+    },
+    {
+      "groupName": "GROUP1",
+      "checklistName": "SECURING",
+      "checklistItems": [
+        { "label": "Brakes", "challenge": "SET" },
+        { "label": "Throttle", "challenge": "IDLE"},
+        { "label": "Avionics Switch (Bus 1 & Bus 2)", "challenge": "OFF"},
+        { "label": "Magnetos", "challenge": "GROUND CHECK"},
+        { "label": "Mixture", "challenge": "IDLE CUT-OFF"},
+        { "label": "Magnetos / Keys", "challenge": "OFF & OUT"},
+        { "label": "Electrical Equipment", "challenge": "OFF"},
+        { "label": "Hobbs/Tach", "challenge": "RECORD"},
+        { "label": "Master Switch", "challenge": "OFF"},
+        { "label": "Standby Battery Switch", "challenge": "OFF"},
+        { "label": "Fuel Selector", "challenge": "LEFT or RIGHT"},
+        { "label": "Chocks / Control Lock & Tie Down", "challenge": "IN & SECURE"}
+      ]
+    }
+  ]
+}

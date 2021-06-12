@@ -41,7 +41,9 @@ class ChecklistPage extends HTMLElement {
         // Retrieve the Handbook for the current Airplane
         this._model = SimVar.GetSimVarValue("ATC MODEL", "string", "FMC");
         this._handbookUrl = null;
-        this.loadHandbook(this._model);
+        this._handbookError = null;
+        this._g1000ChecklistLoader = new WT_G1000ChecklistLoader();
+        this.loadHandbookNew(this._model);
         // ******************************* TEMPO FOR TEST *************************
         /*
         let newChecklistModel = new ChecklistModel();
@@ -184,19 +186,19 @@ class ChecklistPage extends HTMLElement {
             }
             this.appendChild(this.root);
             let textChecklistPageError1 = document.createElementNS(Avionics.SVG.NS, "text");
-            textChecklistPageError1.textContent = "ERROR responseReadyState : " + this._responseReadyState;
+            textChecklistPageError1.textContent = "ERROR responseReadyState : " + this._g1000ChecklistLoader._responseReadyState;
             textChecklistPageError1.setAttribute("x", 10);
             textChecklistPageError1.setAttribute("y", "40%");
             textChecklistPageError1.setAttribute("style", "font-size:1.0em;letter-spacing:0px;word-spacing:0px;fill:#ffffff;");
             this.root.appendChild(textChecklistPageError1);
             let textChecklistPageError2 = document.createElementNS(Avionics.SVG.NS, "text");
-            textChecklistPageError2.textContent = "ERROR handbookUrl : " + this._handbookUrl;
+            textChecklistPageError2.textContent = "ERROR handbookUrl : " + this._g1000ChecklistLoader._handbookUrl;
             textChecklistPageError2.setAttribute("x", 10);
             textChecklistPageError2.setAttribute("y", "42%");
             textChecklistPageError2.setAttribute("style", "font-size:1.0em;letter-spacing:0px;word-spacing:0px;fill:#ffffff;");
             this.root.appendChild(textChecklistPageError2);
             let textChecklistPageError3 = document.createElementNS(Avionics.SVG.NS, "text");
-            textChecklistPageError3.textContent = "ERROR-Handbook HTTP Response Code : " + this._response;
+            textChecklistPageError3.textContent = "ERROR-Handbook HTTP Response Code : " + this._g1000ChecklistLoader._response;
             textChecklistPageError3.setAttribute("x", 10);
             textChecklistPageError3.setAttribute("y", "45%");
             textChecklistPageError3.setAttribute("style", "font-size:1.0em;letter-spacing:0px;word-spacing:0px;fill:#ffffff;");
@@ -219,6 +221,12 @@ class ChecklistPage extends HTMLElement {
             this._textChecklistPageError6.setAttribute("y", "51%");
             this._textChecklistPageError6.setAttribute("style", "font-size:1.0em;letter-spacing:0px;word-spacing:0px;fill:#ffffff;");
             this.root.appendChild(this._textChecklistPageError6);
+            let textChecklistPageError7 = document.createElementNS(Avionics.SVG.NS, "text");
+            textChecklistPageError7.textContent = "ERROR: " + this._handbookError;
+            textChecklistPageError7.setAttribute("x", 10);
+            textChecklistPageError7.setAttribute("y", "53%");
+            textChecklistPageError7.setAttribute("style", "font-size:1.0em;letter-spacing:0px;word-spacing:0px;fill:#ffffff;");
+            this.root.appendChild(textChecklistPageError7);
             return;
         }
         this._svgBuilt = true;
@@ -1042,52 +1050,23 @@ class ChecklistPage extends HTMLElement {
         }
     }
 
-    loadHandbook(theModelAtc) {
-        let theAirplaneIcao = this.toModelIcao(theModelAtc);
-        let handbookHttpRequest = new XMLHttpRequest();
-        handbookHttpRequest.overrideMimeType("application/json");
-        handbookHttpRequest.onreadystatechange = () => {
-            this._responseReadyState = handbookHttpRequest.readyState;
-            if (handbookHttpRequest.readyState === XMLHttpRequest.DONE) {
-                this._response = handbookHttpRequest.status;
-                if (handbookHttpRequest.status === 200 || handbookHttpRequest.status === 0) {
-                    this._handbook = JSON.parse(handbookHttpRequest.responseText, (key, value) => {
-                        if (value instanceof Object) {
-                            if (value.hasOwnProperty("challenge")) {
-                                return Object.assign(new ChecklistItemModel(), value);
-                            } else if (value.hasOwnProperty("groupName")) {
-                                return Object.assign(new ChecklistModel(), value);
-                            } else if (value.hasOwnProperty("airplaneIcao")) {
-                                return Object.assign(new HandbookModel(), value);
-                            }
-                        }
-                        return value;
-                    });
-                    this.handbookLoaded();
-                } else {
-                    //this._
-                }
-            }
-            this.createSVG();
-        };
-        this._handbookUrl = "/Pages/VCockpit/Instruments/Shared/Handbooks/WorkingTitle/handbook-" + theAirplaneIcao + ".json?_=" + new Date().getTime();
-        handbookHttpRequest.open("GET", "/Pages/VCockpit/Instruments/Shared/Handbooks/WorkingTitle/handbook-" + theAirplaneIcao + ".json?_=" + new Date().getTime());
-        handbookHttpRequest.send();
+    loadHandbookNew(theModelAtc) {
+        this._g1000ChecklistLoader
+            .loadHandbook(theModelAtc)
+            .then((handbookLoaded) => {
+                this._handbook = handbookLoaded;
+                this.handbookLoaded();
+            })
+            .catch((error) => {
+                this._handbookError = error;
+            });
     }
-    toModelIcao(theModelAtc) {
-        if (theModelAtc.indexOf("TBM9") > -1) {
-            return "tbm9";
-        } else if (theModelAtc.indexOf("DA62") > -1) {
-            return "da62";
-        } else {
-            return "da62";
-        }
-        // TBM9
-        // TT:ATCCOM.AC_MODEL_DA62.0.text
-    }
+
 }
+
 function getSize(_elementPercent, _canvasSize) {
     return _elementPercent * _canvasSize / 10;
 }
+
 customElements.define('checklist-page', ChecklistPage);
 //# sourceMappingURL=ChecklistPage.js.map

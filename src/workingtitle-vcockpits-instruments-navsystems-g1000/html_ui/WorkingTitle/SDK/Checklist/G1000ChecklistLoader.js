@@ -41,22 +41,24 @@ class WT_G1000ChecklistLoader {
                 }
                 //this.createSVG();
             };
-            this._handbookUrl = "/WTg3000/SDK/Checklist/handbook-" + theAirplaneIcao + ".json?_=" + new Date().getTime();
-            handbookHttpRequest.open("GET", "/WTg3000/SDK/Checklist/handbook-" + theAirplaneIcao + ".json?_=" + new Date().getTime());
+            this._handbookUrl = "/WorkingTitle/SDK/Checklist/handbook-" + theAirplaneIcao + ".json?_=" + new Date().getTime();
+            handbookHttpRequest.open("GET", this._handbookUrl);
             handbookHttpRequest.send();
         });
         return loaderPromise;
     }
 
     toModelIcao(theModelAtc) {
-    if (theModelAtc.indexOf("DA62") > -1) {
-      return "da62";
-    } else {
-      return "da62";
+        if (theModelAtc.indexOf("DA62") > -1) {
+            return "da62";
+        } else if (theModelAtc.indexOf("C172") > -1) {
+            return "c172";
+        } else {
+            return theModelAtc;
+        }
+        // TBM9
+        // TT:ATCCOM.AC_MODEL_DA62.0.text
     }
-    // TBM9
-    // TT:ATCCOM.AC_MODEL_DA62.0.text
-  }
 
 
 }
