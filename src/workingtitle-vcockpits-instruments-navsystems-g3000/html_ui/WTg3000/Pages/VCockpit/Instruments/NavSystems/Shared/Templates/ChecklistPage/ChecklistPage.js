@@ -24,8 +24,11 @@ class HandbookModel {
 }
 
 class ChecklistPage extends HTMLElement {
+
     constructor() {
+
         super();
+
         this._htmlConnected = false;
         this._isAwake = false;
         this._modelNew = null;
@@ -127,6 +130,7 @@ class ChecklistPage extends HTMLElement {
     connectedCallback() {
         this._htmlConnected = true;
         this.createSVG();
+        //this.createSVGForTest();
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -501,6 +505,66 @@ class ChecklistPage extends HTMLElement {
         }*/
     }
 
+    createSVGForTest() {
+
+        //
+        if (!this._htmlConnected || this._svgBuilt) {
+            return;
+        }
+
+        //
+        this._svgBuilt = true;
+
+        // Clean up
+        Utils.RemoveAllChildren(this);
+
+        //
+        this.root = document.createElementNS(Avionics.SVG.NS, "svg");
+        this.root.style.width = "100%";
+        this.root.style.height = "100%";
+        this.root.setAttribute("viewBox", "0 0 1000 1000");
+        this.appendChild(this.root);
+
+        this.style.backgroundColor = "black";
+
+        // Draw Debug Grid ****************************************************
+        {
+            for (let x = 0; x < 1000; x += 100) {
+                let textDebugSize = document.createElementNS(Avionics.SVG.NS, "text");
+                textDebugSize.setAttribute("id", "textDebugSize" + x);
+                textDebugSize.textContent = "" + x;
+                textDebugSize.setAttribute("x", "" + x);
+                textDebugSize.setAttribute("y", "50");
+                textDebugSize.setAttribute("style", "font-size:1.25em;line-height:1.25;letter-spacing:0px;word-spacing:0px;fill:#9bd8d9;");
+                this.root.appendChild(textDebugSize);
+                let vLine = document.createElementNS(Avionics.SVG.NS, "line");
+                vLine.setAttribute("x1", "" + x);
+                vLine.setAttribute("y1", "0");
+                vLine.setAttribute("x2", "" + x);
+                vLine.setAttribute("y2", "1000");
+                vLine.setAttribute("style", "stroke:#9bd8d9;stroke-width:1");
+                this.root.appendChild(vLine);
+            }
+            for (let y = 0; y <= 1000; y += 100) {
+                let textDebugSize = document.createElementNS(Avionics.SVG.NS, "text");
+                textDebugSize.setAttribute("id", "textDebugSize" + y);
+                textDebugSize.textContent = "" + y;
+                textDebugSize.setAttribute("x", "50");
+                textDebugSize.setAttribute("y", "" + y);
+                textDebugSize.setAttribute("style", "font-size:1.25em;line-height:1.25;letter-spacing:0px;word-spacing:0px;fill:#9bd8d9;");
+                this.root.appendChild(textDebugSize);
+                let hLine = document.createElementNS(Avionics.SVG.NS, "line");
+                hLine.setAttribute("x1", "0");
+                hLine.setAttribute("y1", "0" + y);
+                hLine.setAttribute("x2", "1000");
+                hLine.setAttribute("y2", "" + y);
+                hLine.setAttribute("style", "stroke:#9bd8d9;stroke-width:1");
+                this.root.appendChild(hLine);
+            }
+        }
+
+    }
+
     _resizeOverlay() {
         let viewWidth = this.viewWidth;
         let viewHeight = this.viewHeight;
@@ -544,7 +608,7 @@ class ChecklistPage extends HTMLElement {
         let simVarNavTouchChecklistPush = SimVar.GetSimVarValue("L:NAV_TOUCH_CHECKLIST_PUSH", "Bool");
         if (simVarNavTouchChecklistPush) {
             SimVar.SetSimVarValue("L:NAV_TOUCH_CHECKLIST_PUSH", "Bool", false)
-                .catch(console.log);
+                  .catch(console.log);
             this.setAttribute("check_cursor", "1");
         }
 
@@ -786,6 +850,7 @@ class ChecklistPage extends HTMLElement {
       }
       Avionics.Utils.diffAndSetAttribute(this.CDI, "transform", "translate(" + this.crossTrackCurrent + " 0)");
       */
+
     }
 
     onExit() {
@@ -808,7 +873,7 @@ class ChecklistPage extends HTMLElement {
                 this.setAttribute("check_cursor", "true");
                 break;
             case "ENT_Push":
-                this.setAttribute("ent_push", true);
+                this.setAttribute("ent_push", "true");
                 break;
             /*
             case "CRS_INC":
@@ -979,7 +1044,7 @@ class ChecklistPage extends HTMLElement {
             this._currentChecklistIndex = (this._currentChecklistIndex + 1) % this._handbook.checklists.length;
             this.getCurrentChecklist().currentItemIndex = 0;
             this._svgBuilt = false;
-            this.createSVG();
+            //this.createSVG();
             this.showCurrentCursorRect();
             return true;
         }
@@ -1035,6 +1100,7 @@ class ChecklistPage extends HTMLElement {
     handbookLoaded() {
         this._goCreateSVG = true;
         this.createSVG();
+        //this.createSVGForTest();
         if (this._isAs3000) {
             if (this._svgBuilt && !this._active) {
                 this.setAttribute("toggle_active", "true");
@@ -1055,49 +1121,6 @@ class ChecklistPage extends HTMLElement {
             });
     }
 
-    loadHandbook(theModelAtc) {
-        let theAirplaneIcao = this.toModelIcao(theModelAtc);
-        let handbookHttpRequest = new XMLHttpRequest();
-        handbookHttpRequest.overrideMimeType("application/json");
-        handbookHttpRequest.onreadystatechange = () => {
-            this._responseReadyState = handbookHttpRequest.readyState;
-            if (handbookHttpRequest.readyState === XMLHttpRequest.DONE) {
-                this._response = handbookHttpRequest.status;
-                if (handbookHttpRequest.status === 200 || handbookHttpRequest.status === 0) {
-                    this._handbook = JSON.parse(handbookHttpRequest.responseText, (key, value) => {
-                        if (value instanceof Object) {
-                            if (value.hasOwnProperty("challenge")) {
-                                return Object.assign(new ChecklistItemModel(), value);
-                            } else if (value.hasOwnProperty("groupName")) {
-                                return Object.assign(new ChecklistModel(), value);
-                            } else if (value.hasOwnProperty("airplaneIcao")) {
-                                return Object.assign(new HandbookModel(), value);
-                            }
-                        }
-                        return value;
-                    });
-                    this.handbookLoaded();
-                } else {
-                    //this._
-                }
-            }
-            this.createSVG();
-        };
-        this._handbookUrl = "/WTg3000/SDK/Checklist/handbook-" + theAirplaneIcao + ".json?_=" + new Date().getTime();
-        handbookHttpRequest.open("GET", "/WTg3000/SDK/Checklist/handbook-" + theAirplaneIcao + ".json?_=" + new Date().getTime());
-        handbookHttpRequest.send();
-    }
-    toModelIcao(theModelAtc) {
-        if (theModelAtc.indexOf("TBM9") > -1) {
-            return "tbm9";
-        } else if (theModelAtc.indexOf("DA62") > -1) {
-            return "da62";
-        } else {
-            return "da62";
-        }
-        // TBM9
-        // TT:ATCCOM.AC_MODEL_DA62.0.text
-    }
 }
 function getSize(_elementPercent, _canvasSize) {
     return _elementPercent * _canvasSize / 10;

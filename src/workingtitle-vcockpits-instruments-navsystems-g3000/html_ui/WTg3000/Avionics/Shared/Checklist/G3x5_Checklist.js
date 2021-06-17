@@ -1,4 +1,4 @@
-class WT_G3x5_ChecklistDisplay {
+class WT_G3x5_Checklist {
     constructor(instrumentID) {
         this._instrumentID = instrumentID;
     }
@@ -22,6 +22,15 @@ class WT_G3x5_ChecklistDisplay {
     }
 
     /**
+     * The view associated with this map.
+     * @readonly
+     * @type {WT_MapView}
+     */
+    get view() {
+        return this._view;
+    }
+
+  /**
      * @readonly
      * @property {WT_DataStoreController} controller - the controller for this Checklist.
      * @type {WT_DataStoreController}
@@ -32,11 +41,10 @@ class WT_G3x5_ChecklistDisplay {
 
     init(viewElement) {
 
-        console.log("G3x5_ChecklistDisplay.js - init(viewElement)");
+        this._view = viewElement;
         this._checklistView = viewElement.querySelector(`checklist-page`);
-        console.log("G3x5_ChecklistDisplay.js - this._checklistView = " + this._checklistView);
         this._model = new WT_ChecklistModel();
-        this._checklistView.setModel(this.model);
+        //this._checklistView.setModel(this.model);
 
         //this._controller = new WT_DataStoreController(`${this.instrumentID}`, this.model);
 
